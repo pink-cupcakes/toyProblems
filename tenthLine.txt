@@ -1,0 +1,14 @@
+# Read from the file file.txt and output the tenth line to stdout.
+filename=file.txt
+WANT=10
+IFS=$'\n'
+COUNTER=0
+cat $filename | while read line;
+do
+    COUNTER=$((COUNTER + 1))
+    if [ $COUNTER -eq "$WANT" ]; then
+        echo $line
+        break
+    fi
+done
+exit 0
